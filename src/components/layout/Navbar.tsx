@@ -33,7 +33,7 @@ export default function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-[#080B11]/92 backdrop-blur-xl transition-colors">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-16 sm:h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Brand Logo & Editorial Typography */}
           <Link href="/" className="flex items-center gap-3 sm:gap-3.5 group shrink-0">
             {/* Architectural Champagne Gold & Obsidian Frame */}

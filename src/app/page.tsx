@@ -361,7 +361,7 @@ export default function HomePage() {
       <div className="ambient-glow-cobalt top-72 right-6 sm:right-20 w-80 sm:w-[30rem] h-80 sm:h-[30rem] opacity-55" />
 
       {/* 1. HERO SECTION */}
-      <section id="overview" className="relative z-10 pt-10 pb-20 sm:pt-16 sm:pb-28 lg:pt-24 lg:pb-36 border-b border-white/[0.08]">
+      <section id="overview" className="relative z-10 pt-4 pb-14 sm:pt-6 sm:pb-20 lg:pt-8 lg:pb-24 border-b border-white/[0.08]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Column: Headline & Value Proposition */}
