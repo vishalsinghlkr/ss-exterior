@@ -456,15 +456,20 @@ export default function HomePage() {
               <div className="w-full max-w-sm sm:max-w-md">
                 <StyledLogoDisplay>
                   <div className="w-full space-y-4 text-center p-2 sm:p-4">
-                    {/* 3D Architectural Emblem */}
-                    <div className="relative mx-auto h-44 sm:h-52 w-full flex items-center justify-center">
-                      <Image
-                        src="/images/logo-icon.png"
-                        alt="SS Exterior Architectural Insignia"
-                        fill
-                        className="object-contain drop-shadow-[0_16px_36px_rgba(212,175,55,0.45)]"
-                        priority
-                      />
+                    {/* 3D Architectural Emblem with Luminous Backlight */}
+                    <div className="relative mx-auto h-48 sm:h-56 w-full flex items-center justify-center">
+                      {/* Ambient Architectural Spotlight so all facets and lines pop vividly */}
+                      <div className="absolute inset-0 mx-auto w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-tr from-[#D4AF37]/25 via-[#38BDF8]/15 to-[#D4AF37]/10 blur-2xl pointer-events-none" />
+                      
+                      <div className="relative h-44 sm:h-52 w-44 sm:w-52 flex items-center justify-center">
+                        <Image
+                          src="/images/logo-icon.png"
+                          alt="SS Exterior Architectural Insignia"
+                          fill
+                          className="object-contain drop-shadow-[0_12px_28px_rgba(212,175,55,0.5)] drop-shadow-[0_2px_12px_rgba(56,189,248,0.3)] filter brightness-110 contrast-110"
+                          priority
+                        />
+                      </div>
                     </div>
 
                     {/* Radiant High-Contrast Brand Typography */}
