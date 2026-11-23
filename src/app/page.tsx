@@ -30,6 +30,9 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import CloseIcon from "@mui/icons-material/Close";
+import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 
 import { siteConfig } from "@/config/site";
 import {
@@ -38,9 +41,26 @@ import {
   StyledLogoDisplay,
 } from "@/components/styled/StyledElements";
 
+interface ProjectItem {
+  id: string;
+  title: string;
+  category: string;
+  type: "exterior" | "interior";
+  image: string;
+  location: string;
+  materials: string;
+  highlight: string;
+  tag: string;
+  desc: string;
+}
+
 export default function HomePage() {
   const [activeMaterial, setActiveMaterial] = useState<number>(0);
   const [copiedGst, setCopiedGst] = useState(false);
+
+  // Portfolio State
+  const [portfolioFilter, setPortfolioFilter] = useState<"all" | "exterior" | "interior">("all");
+  const [activeLightbox, setActiveLightbox] = useState<ProjectItem | null>(null);
 
   // Estimator State
   const [estimatorArea, setEstimatorArea] = useState<number>(1500);
@@ -156,40 +176,98 @@ export default function HomePage() {
     },
   ];
 
-  const portfolioProjects = [
+  // Authentic Executed Projects
+  const portfolioProjects: ProjectItem[] = [
     {
-      title: "The Sovereign Villa Elevation",
-      category: "Residential Architecture",
-      location: "Golf Course Road, Gurugram",
-      materials: "Exterior HPL Wood Cladding + Vertical WPC Louver Fins",
-      highlight: "Thermal Shield & Zero-Maintenance Timber Finish",
-      tag: "Luxury Villa",
-    },
-    {
-      title: "Apex Corporate Headquarters",
-      category: "Commercial High-Rise",
-      location: "Cyber City, Gurugram",
-      materials: "FR Grade PVDF ACP Paneling + C-Channel Sub-Structure",
-      highlight: "Class-A Fire Rating & Wind-Load Certified",
-      tag: "Commercial Tower",
-    },
-    {
-      title: "Grandeur Retail Showroom Front",
-      category: "Commercial Elevation",
+      id: "curved-facade",
+      title: "Curved Architectural Façade & Cove Lighting",
+      category: "Exterior Façade Cladding",
+      type: "exterior",
+      image: "/images/projects/project-curved-facade-lighting.jpg",
       location: "Sohna Road, Gurugram",
-      materials: "High-Gloss Metallic ACP + Slimline Aluminium Frames",
-      highlight: "Laser-Aligned Joint Tolerances & Integrated Signage",
-      tag: "Retail Showroom",
+      materials: "Curved Exterior Panels + WPC Soffit Louvers + Integrated LED Warm Strips",
+      highlight: "Custom Curved Profiles & Seamless Fluted Balcony Fascia",
+      tag: "Curved Architecture",
+      desc: "Architectural masterpiece featuring custom curved exterior wall cladding, warm recessed cove lighting strips, dark stone boundary plinth, and structural glass balustrades.",
     },
     {
-      title: "Skyline Penthouse Living Suite",
-      category: "Luxury Interior",
-      location: "DLF Phase 5, Gurugram",
-      materials: "European AC5 Engineered Wooden Flooring + Acoustic 3D Wallpaper",
-      highlight: "Acoustic Isolation & Moisture-Proof Click Joints",
-      tag: "Penthouse Interior",
+      id: "villa-dark-soffits",
+      title: "Luxury 3-Tier Villa with Timber Soffits",
+      category: "Residential Exterior Elevation",
+      type: "exterior",
+      image: "/images/projects/project-villa-dark-soffits.jpg",
+      location: "Golf Course Extension, Gurugram",
+      materials: "Exterior HPL Wood Cladding + Dark Textured Stone + Toughened Glass",
+      highlight: "Zero-Maintenance Timber Look & Millimeter Leveling",
+      tag: "Luxury Villa",
+      desc: "Contemporary residential facade featuring rich dark timber ceiling soffits, textured stone pillars, architectural fan pergola roofline, and frameless glass railings.",
+    },
+    {
+      id: "bungalow-wood-louvers",
+      title: "Modern Bungalow with Vertical Louver Tower",
+      category: "Exterior Façade & Louvers",
+      type: "exterior",
+      image: "/images/projects/project-bungalow-wood-louvers.jpg",
+      location: "DLF Phase 2, Gurugram",
+      materials: "Vertical WPC Louver Fins + Stone Tile Veneer + High-Performance Glazing",
+      highlight: "Thermal Sun-Shading & Deep Linear Shadow-Lines",
+      tag: "Modern Bungalow",
+      desc: "Striking vertical architectural louver fin tower paired with horizontal wooden soffit cantilevers, stone veneer cladding, and acoustic exterior window frames.",
+    },
+    {
+      id: "villa-cantilever",
+      title: "Cantilevered Elevation & Louver Screen",
+      category: "Turnkey Elevation Works",
+      type: "exterior",
+      image: "/images/projects/project-modern-villa-cantilever.jpg",
+      location: "South City, Gurugram",
+      materials: "Vertical Louver Screen Tower + Wood Compound Gate & Balcony Overhangs",
+      highlight: "Minimalist Geometry & Weather-Sealed C-Channel Framing",
+      tag: "Turnkey Facade",
+      desc: "Minimalist geometric villa facade with vertical architectural louver screen, integrated wooden boundary gate, planter recesses, and precision expansion joints.",
+    },
+    {
+      id: "residential-3story",
+      title: "3-Story Elevation with Accent Wood Flutes",
+      category: "Residential Architecture",
+      type: "exterior",
+      image: "/images/projects/project-residential-elevation-3story.jpg",
+      location: "Vaishnav Enclave, Gurugram",
+      materials: "Vertical Wood Accent Flutes + Exterior Spotlights + Stone Plinth",
+      highlight: "Linear Vertical Lighting & Weatherproof Polymer Finish",
+      tag: "Residential Elevation",
+      desc: "Multi-level modern home elevation featuring vertical wood feature bands with embedded linear lighting, crisp white parapet frames, and composite boundary accents.",
+    },
+    {
+      id: "interior-fluted-wall",
+      title: "Luxury Fluted Louver TV Media Wall",
+      category: "Luxury Interior Louvers",
+      type: "interior",
+      image: "/images/projects/project-interior-fluted-wall.jpg",
+      location: "Executive Residence, Gurugram",
+      materials: "Full-Height Natural Oak WPC Louvers + Warm Ceiling Cove Lighting",
+      highlight: "Acoustic Dampening & Seamless Fluted Wood Rhythm",
+      tag: "Interior Louvers",
+      desc: "Full-height vertical fluted wooden wall feature integrated with warm ceiling cove lighting, stone textured wall tiles, and polished marble flooring.",
+    },
+    {
+      id: "interior-dualtone-louvers",
+      title: "Dual-Tone Fluted Master Headboard Wall",
+      category: "Luxury Interior Design",
+      type: "interior",
+      image: "/images/projects/project-interior-dualtone-louvers.jpg",
+      location: "Master Suite, Gurugram",
+      materials: "Walnut Wood Louvers + Ivory Fluted Center Panels + Brass Fixtures",
+      highlight: "Architectural Symmetry & Acoustic Isolation",
+      tag: "Acoustic Wall",
+      desc: "Symmetrical master bedroom headboard installation combining rich walnut vertical flutes, ivory acoustic center panels, and warm designer brass lighting sconces.",
     },
   ];
+
+  const filteredProjects = portfolioProjects.filter((p) => {
+    if (portfolioFilter === "all") return true;
+    return p.type === portfolioFilter;
+  });
 
   const pillars = [
     {
@@ -352,11 +430,11 @@ export default function HomePage() {
                 </a>
 
                 <a
-                  href="#materials"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-200 border border-white/20 bg-white/5 hover:border-[#D4AF37] hover:text-[#E5BD68] transition-colors w-full sm:w-auto"
+                  href="#portfolio"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-200 border border-[#D4AF37]/40 bg-[#D4AF37]/10 hover:border-[#D4AF37] hover:text-[#E5BD68] transition-colors w-full sm:w-auto"
                 >
-                  <span>Explore Materials</span>
-                  <ArrowForwardIcon fontSize="small" />
+                  <PhotoCameraIcon fontSize="small" />
+                  <span>View Real Projects (7)</span>
                 </a>
 
                 <a
@@ -446,8 +524,211 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. THE 4 PILLARS OF ARCHITECTURAL EXCELLENCE */}
-      <section className="relative z-10 py-16 sm:py-24 border-b border-white/[0.08] bg-[#0A0E17]/60">
+      {/* 2. REAL PROJECT GALLERY SHOWCASE (7 REAL IMAGES) */}
+      <section id="portfolio" className="relative z-10 py-16 sm:py-24 border-b border-white/[0.08] bg-[#0A0E17]/80">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 border-b border-white/10">
+            <div className="space-y-3 max-w-2xl">
+              <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold">
+                <PhotoCameraIcon fontSize="small" /> Authentic Site Handover Photos
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+                Executed Architectural Projects
+              </h2>
+              <p className="text-sm sm:text-base text-slate-300">
+                Explore our real-world turnkey exterior elevations and luxury interior wall louvers executed across Delhi NCR with millimeter precision.
+              </p>
+            </div>
+
+            {/* Filter Tabs */}
+            <div className="flex items-center gap-2 bg-[#121927] p-1.5 rounded-xl border border-white/10 shrink-0">
+              <button
+                onClick={() => setPortfolioFilter("all")}
+                className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+                  portfolioFilter === "all"
+                    ? "bg-[#D4AF37] text-[#080B11] shadow-md shadow-[#D4AF37]/20"
+                    : "text-slate-300 hover:text-white"
+                }`}
+              >
+                All Projects (7)
+              </button>
+              <button
+                onClick={() => setPortfolioFilter("exterior")}
+                className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+                  portfolioFilter === "exterior"
+                    ? "bg-[#D4AF37] text-[#080B11] shadow-md shadow-[#D4AF37]/20"
+                    : "text-slate-300 hover:text-white"
+                }`}
+              >
+                Façades (5)
+              </button>
+              <button
+                onClick={() => setPortfolioFilter("interior")}
+                className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+                  portfolioFilter === "interior"
+                    ? "bg-[#D4AF37] text-[#080B11] shadow-md shadow-[#D4AF37]/20"
+                    : "text-slate-300 hover:text-white"
+                }`}
+              >
+                Interiors (2)
+              </button>
+            </div>
+          </div>
+
+          {/* Project Gallery Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {filteredProjects.map((project) => (
+              <div
+                key={project.id}
+                onClick={() => setActiveLightbox(project)}
+                className="group relative cursor-pointer rounded-2xl overflow-hidden border border-white/10 bg-[#121927] hover:border-[#D4AF37]/60 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-[#D4AF37]/10 flex flex-col"
+              >
+                {/* Image Container with Aspect Ratio */}
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-900">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  {/* Subtle Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#080B11] via-[#080B11]/30 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+
+                  {/* Top Badges */}
+                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-[#080B11]/80 backdrop-blur-md text-[#E5BD68] border border-[#D4AF37]/40 shadow-sm">
+                      {project.tag}
+                    </span>
+                    <span className="h-8 w-8 rounded-full bg-[#080B11]/80 backdrop-blur-md text-white border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <ZoomInIcon fontSize="small" />
+                    </span>
+                  </div>
+
+                  {/* Bottom Text in Image */}
+                  <div className="absolute bottom-3 left-3.5 right-3.5">
+                    <div className="flex items-center gap-1.5 text-[11px] text-[#E5BD68] font-semibold">
+                      <LocationOnIcon fontSize="inherit" />
+                      <span>{project.location}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Content Info */}
+                <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-1.5">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF37]">
+                      {project.category}
+                    </p>
+                    <h3 className="text-lg font-extrabold text-white group-hover:text-[#E5BD68] transition-colors tracking-tight line-clamp-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                      {project.desc}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-white/10 space-y-2 text-xs">
+                    <div>
+                      <span className="text-[#D4AF37] font-semibold">Materials: </span>
+                      <span className="text-slate-400 line-clamp-1">{project.materials}</span>
+                    </div>
+                    <div className="flex items-center justify-between pt-1">
+                      <span className="text-[11px] font-semibold text-emerald-400 flex items-center gap-1">
+                        <DoneAllIcon fontSize="inherit" /> Site Handover Verified
+                      </span>
+                      <span className="text-xs font-bold text-[#E5BD68] group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5">
+                        <span>Details</span>
+                        <ChevronRightIcon fontSize="small" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LIGHTBOX MODAL FOR HIGH-RES PROJECT VIEW */}
+      {activeLightbox && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6"
+          onClick={() => setActiveLightbox(null)}
+        >
+          <div
+            className="relative max-w-4xl w-full max-h-[92vh] overflow-y-auto rounded-2xl bg-[#0F1420] border border-[#D4AF37]/50 shadow-2xl p-4 sm:p-6 space-y-5"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between pb-3 border-b border-white/10">
+              <div className="space-y-0.5">
+                <span className="text-[11px] uppercase tracking-wider text-[#D4AF37] font-bold">
+                  {activeLightbox.category} • {activeLightbox.location}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                  {activeLightbox.title}
+                </h3>
+              </div>
+              <button
+                onClick={() => setActiveLightbox(null)}
+                className="h-9 w-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors shrink-0"
+              >
+                <CloseIcon fontSize="small" />
+              </button>
+            </div>
+
+            {/* High-Resolution Project Photo */}
+            <div className="relative aspect-[4/5] sm:aspect-[16/10] w-full rounded-xl overflow-hidden bg-black border border-white/10 shadow-inner">
+              <Image
+                src={activeLightbox.image}
+                alt={activeLightbox.title}
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
+
+            {/* Project Technical Breakdown */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div className="p-3.5 rounded-xl bg-black/40 border border-white/10 space-y-1">
+                <p className="font-bold text-[#D4AF37] uppercase tracking-wider text-[11px]">Material Scope</p>
+                <p className="text-slate-200">{activeLightbox.materials}</p>
+              </div>
+              <div className="p-3.5 rounded-xl bg-black/40 border border-white/10 space-y-1">
+                <p className="font-bold text-emerald-400 uppercase tracking-wider text-[11px]">Engineering Performance</p>
+                <p className="text-slate-200">{activeLightbox.highlight}</p>
+              </div>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              {activeLightbox.desc}
+            </p>
+
+            {/* Action Bar */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-white/10">
+              <span className="text-xs text-slate-400">
+                Turnkey Execution by <strong className="text-white">SS Exterior</strong> • Sohna, Gurugram
+              </span>
+              <a
+                href={`https://wa.me/917905080922?text=Hello%20SS%20Exterior!%20I%20am%20interested%20in%20a%20project%20like:%20${encodeURIComponent(
+                  activeLightbox.title
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold text-[#080B11] bg-gradient-to-r from-[#FDE68A] via-[#D4AF37] to-[#B88E28] hover:brightness-110 shadow-md shadow-[#D4AF37]/25 transition-all"
+              >
+                <WhatsAppIcon fontSize="small" />
+                <span>Inquire for Similar Project</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 3. THE 4 PILLARS OF ARCHITECTURAL EXCELLENCE */}
+      <section className="relative z-10 py-16 sm:py-24 border-b border-white/[0.08]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold block">
@@ -480,8 +761,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. CORE ARCHITECTURAL MATERIALS SHOWCASE */}
-      <section id="materials" className="relative z-10 py-16 sm:py-24 border-b border-white/[0.08]">
+      {/* 4. CORE ARCHITECTURAL MATERIALS SHOWCASE */}
+      <section id="materials" className="relative z-10 py-16 sm:py-24 border-b border-white/[0.08] bg-[#0A0E17]/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">
           <div className="max-w-3xl space-y-3">
             <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold block">
@@ -558,80 +839,6 @@ export default function HomePage() {
                 In-Stock for Immediate Dispatch
               </span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. SIGNATURE PROJECT PORTFOLIO SHOWCASE */}
-      <section id="portfolio" className="relative z-10 py-16 sm:py-24 border-b border-white/[0.08] bg-[#0A0E17]/60">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div className="space-y-3 max-w-2xl">
-              <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold block">
-                Portfolio of Landmarks
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-                Signature Facade & Interior Projects
-              </h2>
-              <p className="text-sm sm:text-base text-slate-300">
-                Explore a curated selection of our turnkey execution across high-end villas, corporate towers, and commercial showrooms.
-              </p>
-            </div>
-            <a
-              href={siteConfig.contact.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#E5BD68] hover:text-white transition-colors shrink-0"
-            >
-              <span>View On Instagram</span>
-              <ChevronRightIcon fontSize="small" />
-            </a>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {portfolioProjects.map((proj, idx) => (
-              <StyledGlassCard key={idx} $accent="gold" className="p-6 sm:p-8 space-y-5">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-[#D4AF37]/10 text-[#E5BD68] border border-[#D4AF37]/30">
-                    {proj.tag}
-                  </span>
-                  <div className="flex items-center gap-1 text-slate-400 text-xs">
-                    <LocationOnIcon fontSize="inherit" className="text-[#D4AF37]" />
-                    <span>{proj.location}</span>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-                    {proj.title}
-                  </h3>
-                  <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
-                    {proj.category}
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-xl bg-black/40 border border-white/10 space-y-2">
-                  <div className="text-xs">
-                    <span className="text-[#D4AF37] font-semibold">Material Scope: </span>
-                    <span className="text-slate-300">{proj.materials}</span>
-                  </div>
-                  <div className="text-xs">
-                    <span className="text-emerald-400 font-semibold">Performance: </span>
-                    <span className="text-slate-300">{proj.highlight}</span>
-                  </div>
-                </div>
-
-                <a
-                  href={`https://wa.me/917905080922?text=Hello%20SS%20Exterior,%20I%20am%20interested%20in%20a%20project%20similar%20to%20${encodeURIComponent(proj.title)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-[#E5BD68] hover:text-white transition-colors"
-                >
-                  <span>Inquire for Similar Project</span>
-                  <ArrowForwardIcon fontSize="inherit" />
-                </a>
-              </StyledGlassCard>
-            ))}
           </div>
         </div>
       </section>
