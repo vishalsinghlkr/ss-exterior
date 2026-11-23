@@ -407,22 +407,6 @@ export default function HomePage() {
                   <PhotoCameraIcon fontSize="small" />
                   <span>See Real Finished Projects (7)</span>
                 </a>
-
-                <a
-                  href={`tel:${siteConfig.contact.phone}`}
-                  className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl font-medium text-xs sm:text-sm text-[#E5BD68] border border-[#D4AF37]/30 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 transition-colors w-full sm:w-auto"
-                >
-                  <PhoneIcon fontSize="small" />
-                  <span>Satyajeet: +91 7905080922</span>
-                </a>
-
-                <a
-                  href={`tel:${siteConfig.contact.secondaryPhone}`}
-                  className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl font-medium text-xs sm:text-sm text-[#E5BD68] border border-[#D4AF37]/30 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 transition-colors w-full sm:w-auto"
-                >
-                  <PhoneIcon fontSize="small" />
-                  <span>Shubham: +91 7982522313</span>
-                </a>
               </div>
 
               {/* Engineering Metrics Strip */}
