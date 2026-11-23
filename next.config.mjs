@@ -1,0 +1,14 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  compiler: {
+    styledComponents: true,
+  },
+  transpilePackages: [
+    "@mui/material",
+    "@mui/icons-material",
+    "@mui/material-nextjs",
+  ],
+};
+
+export default nextConfig;
