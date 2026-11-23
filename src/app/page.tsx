@@ -450,47 +450,52 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: Master Brand Presentation Plaque */}
+            {/* Right Column: 3D Architectural Emblem Showcase */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full max-w-md sm:max-w-lg space-y-3.5">
-                {/* Architectural Plaque Frame */}
-                <div className="relative rounded-2xl sm:rounded-3xl p-1.5 bg-gradient-to-br from-[#D4AF37]/50 via-[#1A253A] to-[#0A0F1A] shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(212,175,55,0.25)] border border-[#D4AF37]/40 overflow-hidden group">
-                  {/* Luxury Textured Canvas Container */}
-                  <div className="relative rounded-[calc(1rem+2px)] sm:rounded-[calc(1.5rem-2px)] overflow-hidden bg-[#F7F6F2] shadow-inner">
-                    <div className="relative aspect-[1024/558] w-full">
-                      <Image
-                        src="/images/logo-presentation.jpg"
-                        alt="SS Exterior — Master Brand Identity & Architectural Design"
-                        fill
-                        className="object-contain p-2 sm:p-3 group-hover:scale-[1.02] transition-transform duration-500"
-                        priority
-                      />
-                    </div>
+              <div className="w-full max-w-sm sm:max-w-md">
+                {/* Luxury Obsidian & Champagne Gold Card */}
+                <div className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-[#162033]/90 via-[#0E1524]/95 to-[#080B11] border border-[#D4AF37]/35 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.9),0_0_35px_rgba(212,175,55,0.18)] backdrop-blur-xl text-center space-y-5 relative overflow-hidden group">
+                  {/* Ambient Architectural Spotlight Behind Emblem */}
+                  <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-tr from-[#D4AF37]/25 via-[#38BDF8]/20 to-transparent blur-3xl pointer-events-none" />
+
+                  {/* 3D Architectural Emblem */}
+                  <div className="relative mx-auto h-44 sm:h-52 w-44 sm:w-52 flex items-center justify-center">
+                    <Image
+                      src="/images/logo-icon.png"
+                      alt="SS Exterior Architectural Emblem"
+                      fill
+                      className="object-contain drop-shadow-[0_12px_28px_rgba(212,175,55,0.55)] drop-shadow-[0_4px_16px_rgba(56,189,248,0.35)] group-hover:scale-105 transition-transform duration-500"
+                      priority
+                    />
                   </div>
 
-                  {/* Corner Accent Notches for Luxury Architectural Look */}
-                  <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t-2 border-l-2 border-[#D4AF37] pointer-events-none" />
-                  <div className="absolute top-2 right-2 w-3.5 h-3.5 border-t-2 border-r-2 border-[#D4AF37] pointer-events-none" />
-                  <div className="absolute bottom-2 left-2 w-3.5 h-3.5 border-b-2 border-l-2 border-[#D4AF37] pointer-events-none" />
-                  <div className="absolute bottom-2 right-2 w-3.5 h-3.5 border-b-2 border-r-2 border-[#D4AF37] pointer-events-none" />
-                </div>
+                  {/* Brand Typography (White + Metallic Gold) */}
+                  <div className="space-y-1.5 pt-1">
+                    <h2 className="text-2xl sm:text-3xl font-black tracking-wider text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
+                      SS <span className="text-metallic-gold">EXTERIOR</span>
+                    </h2>
+                    <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.24em] text-[#FDE68A]">
+                      Façades & Architectural Design
+                    </p>
+                  </div>
 
-                {/* Subtitle Bar: Brand Slogan & Quick Actions */}
-                <div className="rounded-xl border border-white/10 bg-[#0E1524]/90 p-3 sm:p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-                  <div className="space-y-0.5">
-                    <p className="text-xs font-semibold text-white">
+                  {/* Divider & Slogan */}
+                  <div className="pt-3 border-t border-white/10 space-y-1">
+                    <p className="text-xs italic text-slate-300 font-medium">
                       "Where Architectural Vision Meets Precision Execution"
                     </p>
-                    <p className="text-[11px] font-bold text-[#E5BD68] uppercase tracking-wider">
+                    <span className="inline-block text-[11px] uppercase tracking-widest text-[#E5BD68] font-bold">
                       Sohna • Gurugram • Delhi NCR
-                    </p>
+                    </span>
                   </div>
-                  <div className="flex items-center gap-2 shrink-0">
+
+                  {/* Quick Action Badges */}
+                  <div className="flex items-center justify-center gap-2.5 pt-1">
                     <a
                       href={siteConfig.contact.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-slate-300 hover:text-pink-400 hover:bg-white/10 transition-colors border border-white/10"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-slate-300 hover:text-pink-400 hover:bg-white/10 transition-colors border border-white/10"
                     >
                       <InstagramIcon fontSize="small" />
                       <span>Instagram</span>
@@ -499,7 +504,7 @@ export default function HomePage() {
                       href={siteConfig.contact.whatsapp}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition-colors border border-emerald-500/30"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition-colors border border-emerald-500/30"
                     >
                       <WhatsAppIcon fontSize="small" />
                       <span>WhatsApp</span>
