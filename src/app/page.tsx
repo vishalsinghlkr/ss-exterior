@@ -246,6 +246,18 @@ export default function HomePage() {
       desc: "Multi-level modern home elevation featuring vertical wood feature bands with embedded linear lighting, crisp white parapet frames, and composite boundary accents.",
     },
     {
+      id: "interior-fluted-wall",
+      title: "Luxury Fluted Louver TV Media Wall",
+      category: "Luxury Interior Louvers",
+      type: "interior",
+      image: "/images/projects/project-interior-fluted-wall.jpg",
+      location: "Executive Residence, Gurugram",
+      materials: "Full-Height Natural Oak WPC Louvers + Warm Ceiling Cove Lighting",
+      highlight: "Acoustic Dampening & Seamless Fluted Wood Rhythm",
+      tag: "Interior Louvers",
+      desc: "Full-height vertical fluted wooden wall feature integrated with warm ceiling cove lighting, stone textured wall tiles, and polished marble flooring.",
+    },
+    {
       id: "interior-dualtone-louvers",
       title: "Dual-Tone Fluted Master Headboard Wall",
       category: "Luxury Interior Design",
@@ -393,7 +405,7 @@ export default function HomePage() {
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-200 border border-[#D4AF37]/40 bg-[#D4AF37]/10 hover:border-[#D4AF37] hover:text-[#E5BD68] transition-colors w-full sm:w-auto"
                 >
                   <PhotoCameraIcon fontSize="small" />
-                  <span>See Real Finished Projects (6)</span>
+                  <span>See Real Finished Projects (7)</span>
                 </a>
               </div>
 
@@ -662,7 +674,7 @@ export default function HomePage() {
                 : "text-slate-300 hover:text-white"
                 }`}
             >
-              All Projects (6)
+              All Projects (7)
             </button>
             <button
               onClick={() => setPortfolioFilter("exterior")}
@@ -680,7 +692,7 @@ export default function HomePage() {
                 : "text-slate-300 hover:text-white"
                 }`}
             >
-              Interiors (1)
+              Interiors (2)
             </button>
           </div>
         </div>
