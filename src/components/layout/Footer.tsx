@@ -73,45 +73,40 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Specialized Materials */}
+          {/* Specialized Services from Visiting Card */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-white">
-              Architectural Materials
+              Our Services
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <a href="#materials" className="hover:text-[#E5BD68] transition-colors">
-                  • ACP (Aluminium Composite Panels)
+                  • Wooden Flooring
                 </a>
               </li>
               <li>
                 <a href="#materials" className="hover:text-[#E5BD68] transition-colors">
-                  • HPL (High Pressure Laminates)
+                  • HPL Cladding
                 </a>
               </li>
               <li>
                 <a href="#materials" className="hover:text-[#E5BD68] transition-colors">
-                  • WPC Louvers & Linear Fins
+                  • ACP Work
                 </a>
               </li>
               <li>
                 <a href="#materials" className="hover:text-[#E5BD68] transition-colors">
-                  • C-Channel Structural Sub-Framing
+                  • WPC Louvers & Decking
                 </a>
               </li>
               <li>
                 <a href="#materials" className="hover:text-[#E5BD68] transition-colors">
-                  • Luxury Engineered Wooden Flooring
+                  • All Elevation Work
                 </a>
               </li>
               <li>
                 <a href="#materials" className="hover:text-[#E5BD68] transition-colors">
-                  • Acoustic Wallpapers & Glazing Systems
-                </a>
-              </li>
-              <li>
-                <a href="#materials" className="hover:text-[#E5BD68] transition-colors">
-                  • Turnkey Building Elevation Works
+                  • MS Structural & Fabrication Work
                 </a>
               </li>
             </ul>
@@ -159,12 +154,12 @@ export default function Footer() {
           {/* Official Registered Facility */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-white">
-              Corporate Office & GST
+              Corporate Office & Contacts
             </h4>
             <div className="rounded-xl border border-white/10 bg-[#0C111C] p-3.5 space-y-2.5 text-xs text-slate-300">
               <div className="flex items-center gap-1.5 text-emerald-400 font-semibold text-[11px]">
                 <VerifiedIcon fontSize="inherit" />
-                <span>GST Registered: {siteConfig.contact.gst}</span>
+                <span>GSTIN: {siteConfig.contact.gst}</span>
               </div>
               <div className="flex items-start gap-2 text-slate-400">
                 <LocationOnIcon fontSize="inherit" className="mt-0.5 text-[#D4AF37] shrink-0" />
@@ -172,34 +167,67 @@ export default function Footer() {
                   {siteConfig.contact.address.full}
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <PhoneIcon fontSize="inherit" className="text-[#D4AF37] shrink-0" />
-                <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-white transition-colors">
-                  {siteConfig.contact.displayPhone}
-                </a>
+
+                {/* Both Direct Contacts */}
+                <div className="pt-1 border-t border-white/5 space-y-2">
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="text-slate-400 font-medium">Satyajeet Kumar:</span>
+                    <div className="flex items-center gap-2">
+                      <a href={`tel:${siteConfig.contact.phone}`} className="text-[#E5BD68] hover:text-white transition-colors font-mono">
+                        +91 {siteConfig.contact.phone}
+                      </a>
+                      <a
+                        href={siteConfig.contact.whatsapp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-emerald-400 hover:text-emerald-300"
+                        aria-label="WhatsApp Satyajeet"
+                      >
+                        <WhatsAppIcon sx={{ fontSize: 14 }} />
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="text-slate-400 font-medium">Shubham Tiwari:</span>
+                    <div className="flex items-center gap-2">
+                      <a href={`tel:${siteConfig.contact.secondaryPhone}`} className="text-[#E5BD68] hover:text-white transition-colors font-mono">
+                        +91 {siteConfig.contact.secondaryPhone}
+                      </a>
+                      <a
+                        href={siteConfig.contact.whatsappSecondary}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-emerald-400 hover:text-emerald-300"
+                        aria-label="WhatsApp Shubham"
+                      >
+                        <WhatsAppIcon sx={{ fontSize: 14 }} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                  <div className="flex items-center gap-2 pt-1 text-slate-300">
+                    <EmailIcon fontSize="inherit" className="text-[#D4AF37] shrink-0" />
+                      <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-white transition-colors truncate text-[11px]">
+                        {siteConfig.contact.email}
+                      </a>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-slate-300">
-                <EmailIcon fontSize="inherit" className="text-[#D4AF37] shrink-0" />
-                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-white transition-colors truncate">
-                  {siteConfig.contact.email}
-                </a>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/10 text-xs text-slate-500">
+              <p>© {currentYear} SS Exterior. All architectural specifications and trademarks reserved.</p>
+              <div className="flex items-center gap-4">
+                <span className="text-emerald-400 flex items-center gap-1 font-medium">
+                  <VerifiedIcon fontSize="inherit" /> Official GST Verified
+                </span>
+                <span>•</span>
+                <span className="text-[#D4AF37] font-medium">Sector 67, Gurugram (Delhi NCR)</span>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/10 text-xs text-slate-500">
-          <p>© {currentYear} SS Exterior. All architectural specifications and trademarks reserved.</p>
-          <div className="flex items-center gap-4">
-            <span className="text-emerald-400 flex items-center gap-1 font-medium">
-              <VerifiedIcon fontSize="inherit" /> Official GST Verified
-            </span>
-            <span>•</span>
-            <span className="text-[#D4AF37] font-medium">Sohna, Gurugram (Delhi NCR)</span>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+        </footer>
+        );
 }
