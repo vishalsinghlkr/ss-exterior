@@ -4,15 +4,9 @@
 
 @layer base {
   :root {
-    --bg-canvas: #F8FAFC;
+    --bg-canvas: #FAF9F6;
     --text-primary: #0F172A;
     --border-subtle: #E2E8F0;
-  }
-
-  .dark {
-    --bg-canvas: #080B11;
-    --text-primary: #F8FAFC;
-    --border-subtle: rgba(255, 255, 255, 0.08);
   }
 
   * {
@@ -26,8 +20,8 @@
   }
 
   body {
-    background-color: #080B11;
-    color: #F8FAFC;
+    background-color: #FAF9F6;
+    color: #0F172A;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -46,82 +40,82 @@
   scrollbar-width: none;
 }
 
-/* Architectural Blueprint Fine Grid */
+/* Architectural Blueprint Fine Grid (Warm Light Ivory Tone) */
 .architectural-grid {
   background-size: 60px 60px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
 }
 
-/* Metallic Champagne Gold Gradient Text */
+/* Metallic Champagne Gold Gradient Text (High Contrast for Light Canvas) */
 .text-metallic-gold {
-  background: linear-gradient(135deg, #FFF1C5 0%, #E5BD68 35%, #D4AF37 70%, #A88424 100%);
+  background: linear-gradient(135deg, #B48608 0%, #D4AF37 45%, #926A06 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* Metallic Glazing Azure / Cobalt Gradient Text */
 .text-metallic-cobalt {
-  background: linear-gradient(135deg, #BAE6FD 0%, #38BDF8 50%, #0284C7 100%);
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 50%, #0C4A6E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* Backwards compatibility */
 .text-metallic-azure {
-  background: linear-gradient(135deg, #BAE6FD 0%, #38BDF8 50%, #0284C7 100%);
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 50%, #0C4A6E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* Metallic Architectural Bronze */
 .text-metallic-bronze {
-  background: linear-gradient(135deg, #FED7AA 0%, #FB923C 50%, #EA580C 100%);
+  background: linear-gradient(135deg, #EA580C 0%, #C2410C 50%, #9A3412 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Ambient Radial Glows */
+/* Ambient Radial Glows (Light Ivory Palette) */
 .ambient-glow-gold {
   position: absolute;
-  filter: blur(130px);
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(189, 148, 34, 0.04) 60%, transparent 80%);
+  filter: blur(140px);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(245, 208, 97, 0.03) 60%, transparent 80%);
   pointer-events: none;
   z-index: 0;
 }
 
 .ambient-glow-cobalt {
   position: absolute;
-  filter: blur(130px);
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(2, 132, 199, 0.04) 60%, transparent 80%);
+  filter: blur(140px);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
 .ambient-glow-azure {
   position: absolute;
-  filter: blur(130px);
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(2, 132, 199, 0.04) 60%, transparent 80%);
+  filter: blur(140px);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
 .ambient-glow-copper {
   position: absolute;
-  filter: blur(130px);
-  background: radial-gradient(circle, rgba(234, 88, 12, 0.14) 0%, rgba(194, 65, 12, 0.03) 60%, transparent 80%);
+  filter: blur(140px);
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Glassmorphism Luxury Border */
+/* Glassmorphism Luxury Border (Ivory Light Surface) */
 .gold-glass-panel {
-  background: rgba(18, 25, 39, 0.75);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 175, 55, 0.22);
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 /* Custom Luxury Architectural Scrollbar */
@@ -131,15 +125,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #080B11;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #D4AF37;
   border-radius: 9999px;
-  border: 2px solid #080B11;
+  border: 2px solid #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #E5BD68;
+  background: #B48608;
 }

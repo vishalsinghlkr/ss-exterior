@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: "SS Exterior",
-  tagline: "Redefining Spaces with Premium Interiors, Exteriors & Architectural Façades",
+  tagline: "Redefining Spaces with Premium Interiors, Exteriors & Architectural Facades",
   subHeadline:
     "We deliver high-grade architectural products and precision installation services that bring modern elegance, durability, and superior craftsmanship to your residential and commercial projects.",
   description:
-    "Premier provider of end-to-end Interior, Exterior, and Architectural Façade solutions in Gurugram, Delhi NCR and across India. Specializing in ACP Work, HPL Cladding, WPC Louvers & Decking, Wooden Flooring, MS Structural & Fabrication, and All Elevation Works.",
+    "Premier provider of end-to-end Interior, Exterior, and Architectural Facade solutions in Gurugram, Delhi NCR and across India. Specializing in ACP Work, HPL Cladding, WPC Louvers & Decking, Wooden Flooring, MS Structural & Fabrication, and All Elevation Works.",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   contact: {
     // Both Key Personnel from Official Visiting Card
@@ -41,6 +41,7 @@ export const siteConfig = {
       state: "Haryana",
       pincode: "122101",
       full: "U289, Vashnav Enclave, Near Indian Gas, Sector 67, Gurugram, Haryana - 122101",
+      googleMaps: "https://maps.google.com/?q=U289,+Vashnav+Enclave,+Near+Indian+Gas,+Sector+67,+Gurugram,+Haryana+122101",
     },
     gst: "06DQEPK3236F1Z3",
   },

@@ -77,27 +77,27 @@ export const StyledPulseBadge = styled.span<{
           background: linear-gradient(
             90deg,
             rgba(212, 175, 55, 0.12) 0%,
-            rgba(245, 208, 97, 0.24) 50%,
+            rgba(245, 208, 97, 0.22) 50%,
             rgba(212, 175, 55, 0.12) 100%
           );
           background-size: 200% auto;
           animation: ${shimmerSweep} 4s linear infinite;
-          color: #E5BD68;
-          border: 1px solid rgba(212, 175, 55, 0.4);
-          box-shadow: 0 4px 20px rgba(212, 175, 55, 0.12);
+          color: #926A06;
+          border: 1px solid rgba(212, 175, 55, 0.45);
+          box-shadow: 0 2px 10px rgba(212, 175, 55, 0.15);
         `;
     }
   }}
 `;
 
 /**
- * Editorial Architectural Card with Structural Obsidian & Metallic Sheen
+ * Editorial Architectural Card with Structural Ivory & Metallic Sheen
  */
 export const StyledGlassCard = styled.div<{
   $accent?: "gold" | "cobalt" | "azure" | "copper" | "bronze" | "neutral";
 }>`
   position: relative;
-  background: rgba(18, 25, 39, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid
@@ -110,14 +110,15 @@ export const StyledGlassCard = styled.div<{
         case "bronze":
           return "rgba(234, 88, 12, 0.28)";
         case "neutral":
-          return "rgba(255, 255, 255, 0.08)";
+          return "rgba(226, 232, 240, 0.9)";
         case "gold":
         default:
-          return "rgba(212, 175, 55, 0.28)";
+          return "rgba(212, 175, 55, 0.35)";
       }
     }};
   border-radius: 1rem;
   padding: 1.75rem;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
 
