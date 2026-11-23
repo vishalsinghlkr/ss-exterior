@@ -360,9 +360,9 @@ export default function HomePage() {
       <div className="ambient-glow-cobalt top-72 right-6 sm:right-20 w-80 sm:w-[30rem] h-80 sm:h-[30rem] opacity-55" />
 
       {/* 1. HERO SECTION */}
-      <section id="overview" className="relative z-10 pt-4 pb-14 sm:pt-6 sm:pb-20 lg:pt-8 lg:pb-24 border-b border-white/[0.08]">
+      <section id="overview" className="relative z-10 pt-4 pb-12 sm:pt-6 sm:pb-16 lg:pt-8 lg:pb-20 border-b border-white/[0.08]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-start">
             {/* Left Column: Headline & Value Proposition */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
               {/* Category Pill */}
@@ -450,16 +450,16 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: 3D Architectural Emblem Showcase */}
-            <div className="lg:col-span-5 flex justify-center">
+            {/* Right Column: 3D Architectural Emblem Showcase (Elevated Top Alignment) */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end lg:pt-0">
               <div className="w-full max-w-sm sm:max-w-md">
                 {/* Luxury Obsidian & Champagne Gold Card */}
-                <div className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-[#162033]/90 via-[#0E1524]/95 to-[#080B11] border border-[#D4AF37]/35 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.9),0_0_35px_rgba(212,175,55,0.18)] backdrop-blur-xl text-center space-y-5 relative overflow-hidden group">
+                <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 bg-gradient-to-b from-[#162033]/90 via-[#0E1524]/95 to-[#080B11] border border-[#D4AF37]/35 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.9),0_0_35px_rgba(212,175,55,0.18)] backdrop-blur-xl text-center space-y-4 relative overflow-hidden group">
                   {/* Ambient Architectural Spotlight Behind Emblem */}
                   <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-tr from-[#D4AF37]/25 via-[#38BDF8]/20 to-transparent blur-3xl pointer-events-none" />
 
                   {/* 3D Architectural Emblem */}
-                  <div className="relative mx-auto h-44 sm:h-52 w-44 sm:w-52 flex items-center justify-center">
+                  <div className="relative mx-auto h-40 sm:h-48 w-40 sm:w-48 flex items-center justify-center">
                     <Image
                       src="/images/logo-icon.png"
                       alt="SS Exterior Architectural Emblem"
