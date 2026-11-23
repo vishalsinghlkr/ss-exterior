@@ -455,22 +455,32 @@ export default function HomePage() {
               <div className="w-full max-w-sm sm:max-w-md">
                 <StyledLogoDisplay>
                   <div className="w-full space-y-4 text-center p-2 sm:p-4">
-                    {/* Transparent Full Logo */}
-                    <div className="relative mx-auto h-52 sm:h-64 w-full flex items-center justify-center">
+                    {/* 3D Architectural Emblem */}
+                    <div className="relative mx-auto h-44 sm:h-52 w-full flex items-center justify-center">
                       <Image
-                        src="/images/logo-full.png"
+                        src="/images/logo-icon.png"
                         alt="SS Exterior Architectural Insignia"
                         fill
-                        className="object-contain drop-shadow-[0_12px_28px_rgba(212,175,55,0.35)]"
+                        className="object-contain drop-shadow-[0_16px_36px_rgba(212,175,55,0.45)]"
                         priority
                       />
                     </div>
 
-                    <div className="pt-2 border-t border-white/[0.08] space-y-1">
-                      <p className="text-xs italic text-slate-300 font-medium">
+                    {/* Radiant High-Contrast Brand Typography */}
+                    <div className="space-y-1 pt-1">
+                      <h2 className="text-2xl sm:text-3xl font-black tracking-wider text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
+                        SS <span className="text-metallic-gold">EXTERIOR</span>
+                      </h2>
+                      <p className="text-[11px] sm:text-xs font-black uppercase tracking-[0.26em] text-[#FDE68A] drop-shadow-sm">
+                        Premium Façades & Architectural Design
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-white/[0.08] space-y-1">
+                      <p className="text-xs italic text-slate-200 font-medium">
                         "Where Architectural Vision Meets Precision Execution"
                       </p>
-                      <span className="inline-block text-[11px] uppercase tracking-widest text-[#E5BD68] font-bold">
+                      <span className="inline-block text-[11px] uppercase tracking-widest text-[#FDE68A] font-extrabold">
                         Sohna • Gurugram • Delhi NCR
                       </span>
                     </div>

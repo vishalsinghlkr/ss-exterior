@@ -35,15 +35,15 @@ export default function Navbar() {
       <header className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-[#080B11]/92 backdrop-blur-xl transition-colors">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Brand Logo & Editorial Typography */}
-          <Link href="/" className="flex items-center gap-3.5 group shrink-0">
+          <Link href="/" className="flex items-center gap-3 sm:gap-3.5 group shrink-0">
             {/* Architectural Champagne Gold & Obsidian Frame */}
-            <div className="relative h-11 w-11 rounded-xl bg-gradient-to-br from-[#1C263A] to-[#0A0E17] p-1.5 border border-[#D4AF37]/50 shadow-md group-hover:border-[#E5BD68] group-hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all shrink-0 flex items-center justify-center">
-              <div className="relative h-8 w-8">
+            <div className="relative h-12 w-12 sm:h-13 sm:w-13 rounded-xl bg-gradient-to-br from-[#25334D] via-[#162033] to-[#0A0F1A] p-1.5 border-2 border-[#D4AF37] shadow-[0_0_18px_rgba(212,175,55,0.35)] group-hover:border-[#FDE68A] group-hover:shadow-[0_0_24px_rgba(212,175,55,0.5)] transition-all shrink-0 flex items-center justify-center">
+              <div className="relative h-9 w-9 sm:h-10 sm:w-10">
                 <Image
                   src="/images/logo-icon.png"
                   alt="SS Exterior Emblem"
                   fill
-                  className="object-contain"
+                  className="object-contain drop-shadow-[0_2px_8px_rgba(212,175,55,0.45)]"
                   priority
                 />
               </div>
@@ -51,12 +51,12 @@ export default function Navbar() {
 
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
-                <span className="text-xl font-extrabold tracking-tight text-white group-hover:text-[#E5BD68] transition-colors">
-                  SS EXTERIOR
+                <span className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-[#FDE68A] transition-colors">
+                  SS <span className="text-metallic-gold">EXTERIOR</span>
                 </span>
-                <VerifiedIcon className="text-[#D4AF37] text-xs" />
+                <VerifiedIcon className="text-[#D4AF37] text-sm" />
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
+              <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#FDE68A]">
                 Façades & Architectural Design
               </span>
             </div>
@@ -144,20 +144,20 @@ export default function Navbar() {
           {/* Drawer Top Header */}
           <div className="space-y-6">
             <div className="flex items-center justify-between pb-4 border-b border-white/10">
-              <div className="flex items-center gap-2.5">
-                <div className="relative h-9 w-9 rounded-lg bg-[#141C2E] border border-[#D4AF37]/40 p-1 flex items-center justify-center">
-                  <div className="relative h-6 w-6">
+              <div className="flex items-center gap-3">
+                <div className="relative h-11 w-11 rounded-xl bg-gradient-to-br from-[#25334D] to-[#0E1524] border-2 border-[#D4AF37] p-1 flex items-center justify-center shadow-[0_0_12px_rgba(212,175,55,0.3)]">
+                  <div className="relative h-8 w-8">
                     <Image
                       src="/images/logo-icon.png"
                       alt="SS Exterior"
                       fill
-                      className="object-contain"
+                      className="object-contain drop-shadow-[0_2px_6px_rgba(212,175,55,0.4)]"
                     />
                   </div>
                 </div>
                 <div>
-                  <p className="text-sm font-extrabold tracking-tight text-white">SS EXTERIOR</p>
-                  <p className="text-[9px] uppercase font-bold tracking-widest text-[#D4AF37]">Façades & Design</p>
+                  <p className="text-base font-black tracking-tight text-white">SS <span className="text-metallic-gold">EXTERIOR</span></p>
+                  <p className="text-[10px] uppercase font-extrabold tracking-widest text-[#FDE68A]">Façades & Architectural Design</p>
                 </div>
               </div>
               <button

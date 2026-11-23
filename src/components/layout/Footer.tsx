@@ -19,23 +19,23 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand Info */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="relative h-11 w-11 rounded-xl bg-gradient-to-br from-[#1C263A] to-[#0A0E17] border border-[#D4AF37]/40 p-1 flex items-center justify-center shrink-0">
-                <div className="relative h-7 w-7">
+            <div className="flex items-center gap-3.5">
+              <div className="relative h-12 w-12 rounded-xl bg-gradient-to-br from-[#25334D] to-[#0E1524] border-2 border-[#D4AF37] p-1 flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(212,175,55,0.3)]">
+                <div className="relative h-8 w-8">
                   <Image
                     src="/images/logo-icon.png"
                     alt="SS Exterior"
                     fill
-                    className="object-contain"
+                    className="object-contain drop-shadow-[0_2px_6px_rgba(212,175,55,0.4)]"
                   />
                 </div>
               </div>
               <div>
-                <h3 className="font-extrabold text-lg text-white tracking-tight">
-                  {siteConfig.name}
+                <h3 className="font-black text-xl text-white tracking-tight">
+                  SS <span className="text-metallic-gold">EXTERIOR</span>
                 </h3>
-                <p className="text-[10px] uppercase font-bold tracking-widest text-[#D4AF37]">
-                  Façades & Luxury Design
+                <p className="text-[10px] uppercase font-extrabold tracking-widest text-[#FDE68A]">
+                  Façades & Architectural Design
                 </p>
               </div>
             </div>
