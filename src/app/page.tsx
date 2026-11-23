@@ -222,18 +222,6 @@ export default function HomePage() {
       desc: "Striking vertical architectural louver fin tower paired with horizontal wooden soffit cantilevers, stone veneer cladding, and acoustic exterior window frames.",
     },
     {
-      id: "villa-cantilever",
-      title: "Cantilevered Elevation & Louver Screen",
-      category: "Turnkey Elevation Works",
-      type: "exterior",
-      image: "/images/projects/project-modern-villa-cantilever.jpg",
-      location: "South City, Gurugram",
-      materials: "Vertical Louver Screen Tower + Wood Compound Gate & Balcony Overhangs",
-      highlight: "Minimalist Geometry & Weather-Sealed C-Channel Framing",
-      tag: "Turnkey Facade",
-      desc: "Minimalist geometric villa facade with vertical architectural louver screen, integrated wooden boundary gate, planter recesses, and precision expansion joints.",
-    },
-    {
       id: "residential-3story",
       title: "3-Story Elevation with Accent Wood Flutes",
       category: "Residential Architecture",
@@ -405,7 +393,7 @@ export default function HomePage() {
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-200 border border-[#D4AF37]/40 bg-[#D4AF37]/10 hover:border-[#D4AF37] hover:text-[#E5BD68] transition-colors w-full sm:w-auto"
                 >
                   <PhotoCameraIcon fontSize="small" />
-                  <span>See Real Finished Projects (7)</span>
+                  <span>See Real Finished Projects (6)</span>
                 </a>
               </div>
 
@@ -674,7 +662,7 @@ export default function HomePage() {
                 : "text-slate-300 hover:text-white"
                 }`}
             >
-              All Projects (7)
+              All Projects (6)
             </button>
             <button
               onClick={() => setPortfolioFilter("exterior")}
@@ -683,7 +671,7 @@ export default function HomePage() {
                 : "text-slate-300 hover:text-white"
                 }`}
             >
-              Façades (5)
+              Façades (4)
             </button>
             <button
               onClick={() => setPortfolioFilter("interior")}
